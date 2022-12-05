@@ -1,0 +1,33 @@
+/* *-----------------------------------------------------------------------
+STILI GENERICI */
+
+/* * ROOT */
+:root{
+    /* ? COLORS */
+    --title-bg-color:#708090;
+    --title-color:white;
+}
+
+
+
+
+
+
+/* *-----------------------------------------------------------------------
+STILI SPECIFICI */
+main h1.my-title{
+    color: var(--title-color);
+    background-color: var(--title-bg-color);
+}
+
+
+
+
+
+
+
+
+
+
+/* ? -----------------------------------------------------------------------
+RESPONSIVENESS */

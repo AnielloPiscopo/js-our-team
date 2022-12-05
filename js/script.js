@@ -1,5 +1,6 @@
 /*-----------------------------------------------------------------------
 DICHIARAZIONI E INIZIALIZZAZIONI INIZIALI */
+
 // * INIZIALIZZAZIONI
 
 // ? ARRAY E OGGETTI
@@ -72,7 +73,7 @@ for(let i=0 ; i< teamMembers.length ; i++){
 
 
     // * Creazione delle singole carte
-    const teamMemberCard = getAnElementWithClasses('article' , 'my-card');
+    const teamMemberCard = getAnElementWithClasses('article' , 'my-card card my-5 mx-3');
     appendAnElementInHtml(teamMemberCard , teamMemberCardsSection);
 
     // * Ciclo for per determinare i valori delle chiavi dei vari oggetti presenti nell'array di partenza
@@ -82,7 +83,7 @@ for(let i=0 ; i< teamMembers.length ; i++){
 
         // ? Creazione e messa nel DOM delle immagini relativi ai compagni di squadra
         if(teamMember[key].includes('jpg')){
-            const teamMemberImg = getAnElementWithClasses('img' , 'my-img');
+            const teamMemberImg = getAnElementWithClasses('img' , 'my-img card-img-top');
             teamMemberImg.alt = 'team member photo';
             teamMemberImg.src = `assets/img/${teamMember[key]}`;
             appendAnElementInHtml(teamMemberImg , teamMemberCard);
@@ -94,9 +95,9 @@ for(let i=0 ; i< teamMembers.length ; i++){
     
     // * Creazione dell'intestazione di ogni singola card che deve contenere un titolo e una descrizione generale
     
-    const teamMemberCardBody = getAnElement('div');
-    const teamMemberCardTitle = getAnElementWithClasses('h3','my-card-title fw-bold text-uppercase');
-    const teamMemberCardText = getAnElement('p');
+    const teamMemberCardBody = getAnElementWithClasses('div','card-body');
+    const teamMemberCardTitle = getAnElementWithClasses('h3','my-title fw-bold text-uppercase card-title');
+    const teamMemberCardText = getAnElementWithClasses('p','card-text');
 
     teamMemberCardTitle.innerHTML = teamMember['fullname'];
     teamMemberCardText.innerHTML = teamMember['description'];
@@ -108,14 +109,14 @@ for(let i=0 ; i< teamMembers.length ; i++){
 
 
     // * Creazione e messa nel dom dei vari ul contenenti le informazioni del personale
-    const teamMemberInfoList = getAnElementWithClasses('ul' , 'my-info-list m-0 p-0');
+    const teamMemberInfoList = getAnElementWithClasses('ul' , 'my-info-list m-0 p-0 list-group list-group-flush');
     appendAnElementInHtml(teamMemberInfoList , teamMemberCard);
     
     // * Ciclo for
     for(let i=0; i<teamMemberKeys.length ; i++){
         teamMemberKey = teamMemberKeys[i];
         
-        let teamMemberInfoListElement = getAnElementWithClasses('span' , 'my-info-li d-block ');
+        let teamMemberInfoListElement = getAnElementWithClasses('li' , 'd-block list-group-item');
         
         teamMemberInfoListElement.innerHTML = `${teamMemberKey.toUpperCase()}: ${teamMember[teamMemberKey]}`; 
         appendAnElementInHtml(teamMemberInfoListElement,teamMemberInfoList);
