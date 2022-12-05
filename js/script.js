@@ -66,11 +66,39 @@ for(let i=0 ; i< teamMembers.length ; i++){
 
 
     // * Creazione delle singole carte
-    const teamMemberCard = putAnElementWithClassesInHtml('article' , 'my-card' , teamMemberCardsSection)
+    const teamMemberCard = getAnElementWithClasses('article' , 'my-card');
+    appendAnElementInHtml(teamMemberCard , teamMemberCardsSection);
 
-
+    // * Ciclo for per determinare i valori delle chiavi dei vari oggetti presenti nell'array di partenza
     for(let key in teamMember){
+        // ? Console log dei valori delle chiavi dei vari oggetti
         console.log(teamMember[key]);
+
+        // ? Creazione e messa nel DOM delle immagini relativi ai compagni di squadra
+        if(teamMember[key].includes('jpg')){
+            const teamMemberImg = getAnElementWithClasses('img' , 'my-img');
+            teamMemberImg.alt = 'team member photo';
+            teamMemberImg.src = `assets/img/${teamMember[key]}`;
+            appendAnElementInHtml(teamMemberImg , teamMemberCard);
+        }
+    }
+
+    // * Creazione dell'array di chiavi
+    const teamMemberKeys = Object.keys(teamMember);
+    
+    // * Ciclo for
+    for(let i=0; i<teamMemberKeys.length ; i++){
+        teamMemberKey = teamMemberKeys[i];
+        
+        let teamMemberInfo = getAnElementWithClasses('span' , 'my-info d-block ');
+        
+        teamMemberInfo.innerHTML = `${teamMemberKey}: ${teamMember[teamMemberKey]}`; 
+        appendAnElementInHtml(teamMemberInfo,teamMemberCard)
+        
+        
+        if(teamMemberKey == 'img'){
+            teamMemberInfo.remove();
+        }
     }
 }
 
@@ -100,18 +128,14 @@ function getAnElementWithClasses(element , elementClasses){
 
 
 
-// * FUNZIONE PER INSERIRE UN ELEMENTO NELL'HTML
-function putAnElementInHtml(element , parent){
-    let child = getAnElement(element);
-
+// * FUNZIONE PER INSERIRE UN ELEMENTO ALLA FINE DEL CONTENITORE
+function appendAnElementInHtml(child , parent){
     parent.append(child);
 }
 
 
 
-// * FUNZIONE PER INSERIRE UN ELEMENTO CON CLASSI NELL'HTML
-function putAnElementWithClassesInHtml(element , elementClasses, parent , action){
-    let child = getAnElementWithClasses(element , elementClasses);
-
-    parent.append(child);
+// * FUNZIONE PER INSERIRE UN ELEMENTO ALL'INIZIO DEL CONTENITORE
+function prependAnElementInHtml(child , parent){
+    parent.prepend(child);
 }
