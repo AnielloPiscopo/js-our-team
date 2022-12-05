@@ -8,36 +8,42 @@ const teamMembers = [
         fullname: 'Wayne Barnett',
         role: 'Founder & CEO',
         img: 'wayne-barnett-founder-ceo.jpg',
+        description: 'asdkasdlnalsdnaslkmaskdmlasdmlaksdkdsasdlasd'
     },
 
     {
         fullname: 'Angela Caroll',
         role: 'Chief Editor',
         img: 'angela-caroll-chief-editor.jpg',
+        description : 'asdsdfkalsdmacnifweif',
     },
 
     {
         fullname: 'Walter Gordon',
         role: 'Office Manager',
         img: 'walter-gordon-office-manager.jpg',
+        description:'askfjaskjasflanfsc ',
     },
 
     {
         fullname: 'Angela Lopez',
         role: 'Social Media Manager',
-        img: 'angela-lopez-social-media-manager.jpg'
+        img: 'angela-lopez-social-media-manager.jpg',
+        description:'asdasdcvd',
     },
 
     {
         fullname:'Scott Estrada',
         role:'Developer',
-        img: 'scott-estrada-developer.jpg'
+        img: 'scott-estrada-developer.jpg',
+        description:'bla bla vla',
     },
 
     {
         fullname:'Barbara Ramos',
         role:'Graphic Designer',
-        img:'barbara-ramos-graphic-designer.jpg'
+        img:'barbara-ramos-graphic-designer.jpg',
+        description:'uculele',
     },
 ]
 
@@ -86,18 +92,37 @@ for(let i=0 ; i< teamMembers.length ; i++){
     // * Creazione dell'array di chiavi
     const teamMemberKeys = Object.keys(teamMember);
     
+    // * Creazione dell'intestazione di ogni singola card che deve contenere un titolo e una descrizione generale
+    
+    const teamMemberCardBody = getAnElement('div');
+    const teamMemberCardTitle = getAnElementWithClasses('h3','my-card-title fw-bold text-uppercase');
+    const teamMemberCardText = getAnElement('p');
+
+    teamMemberCardTitle.innerHTML = teamMember['fullname'];
+    teamMemberCardText.innerHTML = teamMember['description'];
+
+    appendAnElementInHtml(teamMemberCardTitle,teamMemberCardBody);
+    appendAnElementInHtml(teamMemberCardText,teamMemberCardBody);
+    putAnElementAfterAnotherElement(teamMemberCardBody,teamMemberCard.firstElementChild);
+
+
+
+    // * Creazione e messa nel dom dei vari ul contenenti le informazioni del personale
+    const teamMemberInfoList = getAnElementWithClasses('ul' , 'my-info-list m-0 p-0');
+    appendAnElementInHtml(teamMemberInfoList , teamMemberCard);
+    
     // * Ciclo for
     for(let i=0; i<teamMemberKeys.length ; i++){
         teamMemberKey = teamMemberKeys[i];
         
-        let teamMemberInfo = getAnElementWithClasses('span' , 'my-info d-block ');
+        let teamMemberInfoListElement = getAnElementWithClasses('span' , 'my-info-li d-block ');
         
-        teamMemberInfo.innerHTML = `${teamMemberKey}: ${teamMember[teamMemberKey]}`; 
-        appendAnElementInHtml(teamMemberInfo,teamMemberCard)
+        teamMemberInfoListElement.innerHTML = `${teamMemberKey.toUpperCase()}: ${teamMember[teamMemberKey]}`; 
+        appendAnElementInHtml(teamMemberInfoListElement,teamMemberInfoList);
         
         
-        if(teamMemberKey == 'img'){
-            teamMemberInfo.remove();
+        if(teamMemberKey == 'img' || teamMemberKey == 'description'){
+            teamMemberInfoListElement.remove();
         }
     }
 }
@@ -135,7 +160,7 @@ function appendAnElementInHtml(child , parent){
 
 
 
-// * FUNZIONE PER INSERIRE UN ELEMENTO ALL'INIZIO DEL CONTENITORE
-function prependAnElementInHtml(child , parent){
-    parent.prepend(child);
+// * FUNZIONE PER INSERIRE UN ELEMENTO DOPO UN ALTRO ELEMENTO
+function putAnElementAfterAnotherElement(element , simblingElement){
+    simblingElement.after(element);
 }
