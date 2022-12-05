@@ -1,4 +1,9 @@
-const teamMember = [
+/*-----------------------------------------------------------------------
+DICHIARAZIONI E INIZIALIZZAZIONI INIZIALI */
+// * INIZIALIZZAZIONI
+
+// ? ARRAY E OGGETTI
+const teamMembers = [
     {
         fullname: 'Wayne Barnett',
         role: 'Founder & CEO',
@@ -35,3 +40,25 @@ const teamMember = [
         img:'barbara-ramos-graphic-designer.jpg'
     },
 ]
+
+
+
+
+
+/*-----------------------------------------------------------------------
+CODICE PRINCIPALE*/
+
+// * CODICE LINEARE
+console.log(teamMembers);
+
+
+for(let i=0 ; i< teamMembers.length ; i++){
+    const teamMember = teamMembers[i];
+    
+    console.log(teamMember);
+
+
+    for(let key in teamMember){
+        console.log(teamMember[key]);
+    }
+}
