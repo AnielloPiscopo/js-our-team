@@ -6,6 +6,16 @@ STILI GENERICI */
     /* ? COLORS */
     --title-bg-color:#708090;
     --title-color:white;
+    --primary-text-color:black;
+    --lighter-primary-text-color:#96989a;
+}
+
+
+
+/* * TAG HTML */
+body{
+    font-family: sans-serif;
+    color: var(--primary-text-color);
 }
 
 
@@ -18,6 +28,10 @@ STILI SPECIFICI */
 main h1.my-title{
     color: var(--title-color);
     background-color: var(--title-bg-color);
+}
+
+main .my-cards .my-card p{
+    color: var(--lighter-primary-text-color);
 }
 
 

@@ -85,6 +85,7 @@ for(let i=0 ; i< teamMembers.length ; i++){
         if(teamMember[key].includes('jpg')){
             const teamMemberImg = getAnElementWithClasses('img' , 'my-img card-img-top');
             teamMemberImg.alt = 'team member photo';
+            teamMemberImg.title = 'team member photo';
             teamMemberImg.src = `assets/img/${teamMember[key]}`;
             appendAnElementInHtml(teamMemberImg , teamMemberCard);
         }
@@ -126,6 +127,29 @@ for(let i=0 ; i< teamMembers.length ; i++){
             teamMemberInfoListElement.remove();
         }
     }
+
+    // * Creazionde dei link social
+    const teamMemberLinks = getAnElementWithClasses('div','card-body d-flex justify-content-center');
+    const teamMemberLinkFacebook = getAnElementWithClasses('a','card-link');
+    const teamMemberLinkTelegram = getAnElementWithClasses('a','card-link');
+    const teamMemberLinkTwitter = getAnElementWithClasses('a','card-link');
+    const teamMemberLinkInstagram = getAnElementWithClasses('a','card-link');
+
+    teamMemberLinkFacebook.href = '#';
+    teamMemberLinkTelegram.href = '#';
+    teamMemberLinkTwitter.href = '#';
+    teamMemberLinkInstagram.href = '#'
+
+    teamMemberLinkFacebook.innerHTML = 'Facebook';
+    teamMemberLinkTelegram.innerHTML = 'Telegram';
+    teamMemberLinkInstagram.innerHTML = 'Instagram';
+    teamMemberLinkTwitter.innerHTML = 'Twitter';
+
+    appendAnElementInHtml(teamMemberLinkFacebook,teamMemberLinks);
+    appendAnElementInHtml(teamMemberLinkInstagram,teamMemberLinks);
+    appendAnElementInHtml(teamMemberLinkTelegram,teamMemberLinks);
+    appendAnElementInHtml(teamMemberLinkTwitter,teamMemberLinks);
+    appendAnElementInHtml(teamMemberLinks,teamMemberCard);
 }
 
 
