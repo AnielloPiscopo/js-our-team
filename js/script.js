@@ -129,7 +129,7 @@ for(let i=0 ; i< teamMembers.length ; i++){
     }
 
     // * Creazionde dei link social
-    const teamMemberLinks = getAnElementWithClasses('div','card-body d-flex justify-content-center');
+    const teamMemberLinks = getAnElementWithClasses('div','card-body');
     const teamMemberLinkFacebook = getAnElementWithClasses('a','card-link');
     const teamMemberLinkTelegram = getAnElementWithClasses('a','card-link');
     const teamMemberLinkTwitter = getAnElementWithClasses('a','card-link');
