@@ -113,7 +113,7 @@ for(let i=0 ; i< teamMembers.length ; i++){
     const teamMemberInfoList = getAnElementWithClasses('ul' , 'my-info-list m-0 p-0 list-group list-group-flush');
     appendAnElementInHtml(teamMemberInfoList , teamMemberCard);
     
-    // * Ciclo for
+    // * Ciclo for per determinare il valore delle chiavi dei vari oggetti MA ANCHE delle CHIAVI
     for(let i=0; i<teamMemberKeys.length ; i++){
         teamMemberKey = teamMemberKeys[i];
         
